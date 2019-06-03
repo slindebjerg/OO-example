@@ -13,11 +13,11 @@ class Product {
   setDescription(newDescription) { this.description = newDescription }
 }
 
-// class SubProduct extends Product {
-//   constructor (title, price, description, category) {
-//     super(title, price, description)
-//     this.category = category
-//   }
+class SubProduct extends Product {
+  constructor (title, price, description, category) {
+    super(title, price, description)
+    this.category = category
+  }
 
-//   getCategory () { return this.category }
-// }
+  getCategory () { return this.category }
+}

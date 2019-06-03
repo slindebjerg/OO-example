@@ -25,9 +25,9 @@ var db = {
 }
 
 class Store{
-  constructor(productDatabase, cart){
+  constructor(productDatabase){
     this.productArray = this.populateProductArray(productDatabase)
-    this.cart = cart
+    this.cart = new Cart()
   }
 
   populateProductArray(db){
@@ -81,4 +81,31 @@ class Store{
 //   getCategory () { return this.category }
 // }
 
-store = new Store(db, new Cart)
+class Game {
+  constructor() {
+    this.playerArray = [new Player('player1', 0), new Player('player2', 0)]
+  }
+
+  printPlayer(index) {
+    console.log("Player name: " + this.playerArray[index].name +
+                "\nPlayer score: " + this.playerArray[index].score)
+  }
+}
+
+class Player{
+  constructor(name, score){
+    this.name = name
+    this.score = score
+  }
+
+  incrementScore(){
+    this.score++;
+  }
+}
+
+game = new Game()
+console.log(game.playerArray[0].score) // prints 0
+game.playerArray[0].incrementScore()
+console.log(game.playerArray[0].score) // prints 1, score has changed
+game.printPlayer(0)
+game.printPlayer(1)
